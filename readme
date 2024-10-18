@@ -1,1 +1,7 @@
-read me file
+Code for Dendritome analysis
+- P56 morphometric analysis
+- 12m vs. P56 morphometric analysis
+- HD (Q140) vs. WT morphometric analysis
+- P56 box-based analysis
+
+[The interactive dashboard for viewing clusters from box-based analysis](https://mingyan.shinyapps.io/d1d2_box_clusters_2466neurons_threshold7/)
