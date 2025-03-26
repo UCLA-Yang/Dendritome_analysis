@@ -73,6 +73,7 @@ dir.create("Results", recursive = TRUE);
 # stats1 = rbind(data_2m, data_12m)
 # write.csv(stats1, 'morpho_2791CPneurons_for_Aging_analysis.csv',row.names = FALSE)
 
+# read all morphometrics of WT neurons (P56 and 12m, CP neurons only)
 stats1 = read.csv('morpho_2791CPneurons_for_Aging_analysis.csv')
 table(stats1$Brain)
 table(stats1$Age) # 2m: 2248, 12m: 543
