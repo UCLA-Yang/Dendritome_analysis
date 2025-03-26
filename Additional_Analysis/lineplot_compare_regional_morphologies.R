@@ -1,9 +1,7 @@
-# 1. CPr/i/c normalized value distribution colored by P56, 12m WT and 12m Q140
-# for All, D1 only and D2 only
-
-setwd('C:/Users/yanyanming77/Desktop/Ming_Transition/Morphometric_Analysis/Additional_analysis_for_paper-Mar.25.2025/regional_differences_3datasets')
+# Set work directory
+setwd('...')
 # source functions
-func_dir = 'C:/Users/yanyanming77/Desktop/neuro_shape_analysis/combine-Q140vsWT/Functions/'
+func_dir = '../Functions/'
 
 source(paste0(func_dir, "individualAnalysis-General-010.R"));
 source(paste0(func_dir, "GNVFunctions-018-02.R"));
@@ -18,9 +16,9 @@ library(openxlsx)
 
 ########################## READ AND COMBINE DATA #########################################
 # read both 2-m and 12-m data (CP neurons only)
-# read 2-m data
+# read 2-m data, CP neurons only
 data_2m = read.csv('morpho_2248CPneurons_with_community.csv')
-# read 12-m data
+# read 12-m data, CP neurons only
 data_12m = read.csv('all_htme_brains_with_registration_1168CPneurons_onlyCP.csv')
 # create group indicator
 data_2m$group = 'P56 WT'
