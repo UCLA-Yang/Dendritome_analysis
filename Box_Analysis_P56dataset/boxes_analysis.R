@@ -1,8 +1,8 @@
-# work directory
-setwd("C:/Users/yanyanming77/Desktop/Ming_Transition/Morphometric_Analysis/D1D2_box_analysis-Mar.25.2025")
+# Set work directory
+setwd("...")
 
 # source functions
-func_dir = 'C:/Users/yanyanming77/Desktop/Ming_Transition/Morphometric_Analysis/Functions/'
+func_dir = '../Functions/'
 
 source(paste0(func_dir, "individualAnalysis-General-010.R"));
 source(paste0(func_dir, "GNVFunctions-018-02.R"));
@@ -39,8 +39,9 @@ library(ggpubr)
 ###############################################################################################
 ############################ read data ########################################################
 ###############################################################################################
-data_dir = 'TME_morpho_box_May-20-2024_2466neurons.csv'
+# read data that contains morphometrics, categorical columns (Brain, Striatal.Subregion, Striatal.Community...) and Box information for each neuron
 stats1 = read.csv(data_dir,check.names = FALSE)
+data_dir = 'TME_morpho_box_May-20-2024_2466neurons.csv' 
 colnames(stats1)
 dim(stats1) # 2466
 table(stats1$Type) # 1341 D1, 1125 D2
