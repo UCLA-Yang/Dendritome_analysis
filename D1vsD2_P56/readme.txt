@@ -27,3 +27,6 @@ Plots:
 - 17: Heatmap of morphometric distribution overall, across Striatal.Subregion and across Striatal.Community
 - 18: Box plot showing morphometric distribution across Striatal.Subregion, for all neurons, D1-MSNs, and D2-MSNs for each morphometric
 - 19: Box plot showing morphometric comparison D1 vs. D2, for all neurons and across Striatal.Subregion for each morphometric
+
+Results:
+Raw statistics output from the program
