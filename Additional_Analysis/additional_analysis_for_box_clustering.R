@@ -1,8 +1,8 @@
-# work directory
-setwd("C:/Users/yanyanming77/Desktop/Ming_Transition/Morphometric_Analysis/Additional_analysis_for_paper-Mar.25.2025/additional_for_response_box_anlaysis")
+# define the work directory
+setwd("...")
 
 # source functions
-func_dir = 'C:/Users/yanyanming77/Desktop/Ming_Transition/Morphometric_Analysis/Functions/'
+func_dir = '../Functions/'
 
 source(paste0(func_dir, "individualAnalysis-General-010.R"));
 source(paste0(func_dir, "GNVFunctions-018-02.R"));
