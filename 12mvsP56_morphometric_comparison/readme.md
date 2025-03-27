@@ -15,8 +15,8 @@ Plots:
 - 11: Box plot showing P56 and 12m morphometric comparisons across Striatal.Subregions
 - 12: Box plot showing P56 and 12m morphometric comparisons across Striatal.Subregions overall, and by D1- and D2-MSNs
 - 13: PCA and cell clustering results of all WT MSNs, D1-MSNs and D2-MSNs
-- 14: Radar plot showing morphometric percentage changes 12m WT MSNs compared to P56 WT MSNs by D1 and D2 MSNs, in CPr, CPi and CPc
-- 15: Radar plot showing morphometric percentage changes 12m WT MSNs compared to P56 WT MSNs by D1 and D2 MSNs, all Striatal.Subregions
+- 14 (Suppl Fig12a): Radar plot showing morphometric percentage changes 12m WT MSNs compared to P56 WT MSNs by D1 and D2 MSNs, in CPr, CPi and CPc
+- 15 (Fig8a): Radar plot showing morphometric percentage changes 12m WT MSNs compared to P56 WT MSNs by D1 and D2 MSNs, all Striatal.Subregions
 
 Results:
 Raw statistics output from the program
