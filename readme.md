@@ -1,4 +1,4 @@
-Main components of Dendritome analysis:
+Main components of Dendritome analysis in below folders:
 - P56 morphometric analysis
 - 12m vs. P56 morphometric analysis
 - HD (Q140) vs. WT morphometric analysis
