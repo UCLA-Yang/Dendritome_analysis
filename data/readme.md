@@ -9,6 +9,8 @@ all_htme_brains_with_registration_1168CPneurons_onlyCP.csv can be created by all
 
 ##### Other intermediate data files that can be created based on above datasets: <br>
   - P56 MSN morphologies: <br>
-    - morpho_2248CPneurons_with_community.csv, which contains the morphometrics and region information of 2248 P56 WT MSNs that were registered to CP only can be created by morpho_2466CPneurons_with_community.csv by limiting Striatal.Subregion to CPr, CPi, CPc
+    - morpho_2248CPneurons_with_community.csv, which contains the morphometrics and region information of 2248 P56 WT MSNs that were registered to CP only, can be created by morpho_2466CPneurons_with_community.csv by limiting Striatal.Subregion to CPr, CPi, CPc
     - morpho_1871CPneurons_excluded30.csv, which contains the morphometrics and region information of 1871 P56 WT MSNs that were registered to CP and are non-surface neurons, can be created by further limiting the standardized_z to be >= 0.3
     - morpho_brain_adjusted_box_cluster_xyz_D1D2.csv, which is the brain-adjusted morphologies and DM assignments can be created by running box_analysis.R
+- 12m MSN morphologies: <br>
+  - all_htme_brains_with_registration_1168CPneurons_onlyCP.csv, which contains the morphometrics and region information of 1168 12m WT and 12m HD (Q140) MSNs that were registered to CP only, can be created by all_htme_brains_with_registration_all.csv by limiting Striatal.Subregion to CPr, CPi, CPc
