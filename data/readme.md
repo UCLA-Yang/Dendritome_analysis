@@ -1,4 +1,4 @@
-##### Explanation of data files:##### <br>
+##### Explanation of data files: <br>
 - 2466CPneurons_with_standardized_z.csv:<br>the standardized Z (soma-to-surface) value of all 2466 reconstructed MSNs in the P56 dataset
 - TME_morpho_box_May-20-2024_2466neurons.csv: <br>the morphometrics and assigned box for all 2466 MSNs in the P56 dataset
 - all_htme_brains_with_registration_all.csv: <br>the morphologies and region information of 1296 reconstructed MSNs for the 12m dataset (12m WT MSNs and 12m HD MSNs)
