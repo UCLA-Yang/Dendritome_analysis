@@ -2,7 +2,7 @@
 """
 load the trained models, and use a voting scheme to decide the label (D1/D2)
 for the output of each model, use probability instead of hard labels
-for the voted results, use weighted sum of probabilities
+for the voted results, use the weighted sum of probabilities for final prediction
 """
 
 import numpy as np
@@ -37,19 +37,18 @@ import pickle
 print(sys.getrecursionlimit())
 
 # load model SVM
-with open(Path(r'R:\Reconstructions_Manual\Other_Shared\For_MY\validate_D1D2\trained_svm_Oct-26-2023.pkl'), 'rb') as f:
+with open(Path(r'...\trained_svm_Oct-26-2023.pkl'), 'rb') as f:
     trained_svm_clf = pickle.load(f)
 # load model RF
-with open(Path(r'R:\Reconstructions_Manual\Other_Shared\For_MY\validate_D1D2\trained_rf_Oct-26-2023.pkl'), 'rb') as f:
+with open(Path(r'...\trained_rf_Oct-26-2023.pkl'), 'rb') as f:
     trained_rf_clf = pickle.load(f)
 trained_rf_clf.verbose = False
 # load model CNN
-trained_cnn = load_model(r'R:\Reconstructions_Manual\Other_Shared\For_MY\validate_D1D2\trained_cnn_Oct-26-2023.h5')
+trained_cnn = load_model(r'...\trained_cnn_Oct-26-2023.h5')
 
 global trained_svm_clf
 global trained_rf_clf
 global trained_cnn
-
 
 ### Note: can apply more image proecssing steps before classification###
 def viz_img(tif_np):
@@ -133,12 +132,10 @@ def batch_scan_tif_and_predict(brain_name, enhanced_crop_dir, r_around_soma_svm,
     """
 
     neuron_prediction = {}
-    
-    # neuron = '000_hTME16-1_09_xyz-2052-9331-234_processed.png'
+
     for neuron in [f for f in os.listdir(enhanced_crop_dir) if '.png' in f]:
         print(neuron)
-        
-        # neuron = '000_hTME16-1_09_xyz-2052-9331-234_processed.png'
+      
         neuron_name = neuron.replace('.png', '')
         
         neuron_img = np.array(Image.open(enhanced_crop_dir/neuron))
@@ -197,7 +194,10 @@ def batch_scan_tif_and_predict(brain_name, enhanced_crop_dir, r_around_soma_svm,
     return neuron_prediction_df
 
 
+#######################################################################################
 ############################# MAKE PREDICTIONS ########################################
+#######################################################################################
+
 r_around_soma_svm = 60
 r_around_soma_rf = 70
 r_around_soma_cnn = 70
@@ -205,8 +205,10 @@ r_around_soma_cnn = 70
 failed_lst = []
 global failed_lst
 
-brain = 'hTME24-2'
-enhanced_crop_dir = Path(r'R:\Reconstructions_Manual\Other_Shared\For_MY\validate_D1D2\3_new_hTME\hTME24-2')
+# define brain name of the neurons to predict
+brain = '...'
+# define the directory that has the enhanced 2D crop around the soma
+enhanced_crop_dir = Path(r'...')
 
 batch_scan_tif_and_predict(brain, enhanced_crop_dir, r_around_soma_svm, r_around_soma_rf, r_around_soma_cnn)    
     
