@@ -15,3 +15,5 @@ The code will generate plots (the numbers correspond to the figure numbers):
 - 4. The bar plot showing the proportion of surface neurons in D1- and D2-MSNs
 - 5. The bar plot showing the proportion of surface neurons in striatal subregions (CPr, CPi and CPc)
 - 6 (Suppl Fig8b). The bar plot showing the proportion of surface neurons in 7 dendritic modules (DMs)
+
+##### additional_analysis_for_box_clustering.R: <br>To perform additional analysis for box-based clustering #####
