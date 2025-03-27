@@ -9,9 +9,9 @@ and other raw statistics for annotations
 ##### explorartory_analysis_surface_neurons.ipynb: <br>To perform exploratory analysis of the surface neurons in the P56 dataset #####
 
 The code will generate plots (the numbers correspond to the figure numbers): 
-- 1. Line plot showing cumulative cell count by standardized Z location of the neurons within the tissue section
-- 2. Average normalized values by standardized Z locations for each of the 31 features
-- 3. The bar plot showing the averaged normalized value of features at 10%, 20%, 30%, 40% area from the cut surface
+- 1 (Fig3d). Line plot showing cumulative cell count by standardized Z location of the neurons within the tissue section
+- 2 (Suppl Fig3). Average normalized values by standardized Z locations for each of the 31 features
+- 3 (Fig3e). The bar plot showing the averaged normalized value of features at 10%, 20%, 30%, 40% area from the cut surface
 - 4. The bar plot showing the proportion of surface neurons in D1- and D2-MSNs
 - 5. The bar plot showing the proportion of surface neurons in striatal subregions (CPr, CPi and CPc)
-- 6. The bar plot showing the proportion of surface neurons in 7 dendritic modules (DMs)
+- 6 (Suppl Fig8b). The bar plot showing the proportion of surface neurons in 7 dendritic modules (DMs)
