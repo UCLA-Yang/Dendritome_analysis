@@ -17,3 +17,14 @@ The code will generate plots (the numbers correspond to the figure numbers):
 - 6 (Suppl Fig8b). The bar plot showing the proportion of surface neurons in 7 dendritic modules (DMs)
 
 ##### additional_analysis_for_box_clustering.R: <br>To perform additional analysis for box-based clustering #####
+
+The code will generate plots (the numbers correspond to the figure numbers): 
+- 1. Dendrogram and similarity heatmap of box clustering based on different parameter combinations (excluded boxes with < 5 neurons)
+- 2. The silouette score line plot based on different parameter combinations (excluded boxes with < 5 neurons)
+- 3 (Suppl Fig8d). The final dendrogram and heatmap of box clustering (excluded boxes with < 5 neurons)
+- 4 (Suppl Fig8c). The scatter plot showing feature CV by cell count per box (all boxes)
+- 5. The box plot showing feature CV by categorized cell count per box (all boxes)
+- 6 (Suppl Fig8a). Bar plot showing the proportion of brains across 7 DMs
+- 7. Bar plot showing Cohen's D of differences between DM2 and DM6
+- 8. Box plot showing feature differences between DM2 and DM6
+- 9. LDA projection of DM2 and DM6
