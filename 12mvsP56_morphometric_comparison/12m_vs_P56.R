@@ -52,29 +52,26 @@ dir.create("Results", recursive = TRUE);
 ###############################################################################################
 ############################ read data ########################################################
 ###############################################################################################
-# # read 2-m data
-# data_2m = read.csv('morpho_2248CPneurons_with_community.csv')
-# # read 12-m data
-# data_12m = read.csv('all_htme_brains_with_registration_1168CPneurons_onlyCP.csv')
-# ncol(data_12m) # 37
-# # only keep 12-m WT data
-# data_12m = subset(data_12m, Genotype == 'WT')
-# 
-# # drop uncommon columns for both datasets
-# col_not_common = setdiff(union(colnames(data_2m), colnames(data_12m)), intersect(colnames(data_2m), colnames(data_12m)))
-# data_2m = data_2m[, !(names(data_2m) %in% col_not_common)]
-# data_2m$Age =  '2m'
-# ncol(data_2m) # 36
-# data_12m = data_12m[, !(names(data_12m) %in% col_not_common)]
-# data_12m$Age = '12m'
-# ncol(data_12m) # 36
-# 
-# # combine data
-# stats1 = rbind(data_2m, data_12m)
-# write.csv(stats1, 'morpho_2791CPneurons_for_Aging_analysis.csv',row.names = FALSE)
+# read 2-m data
+data_2m = read.csv('morpho_2248CPneurons_with_community.csv')
+# read 12-m data
+data_12m = read.csv('all_htme_brains_with_registration_1168CPneurons_onlyCP.csv')
+ncol(data_12m) # 37
+# only keep 12-m WT data
+data_12m = subset(data_12m, Genotype == 'WT')
 
-# read all morphometrics of WT neurons (P56 and 12m, CP neurons only)
-stats1 = read.csv('morpho_2791CPneurons_for_Aging_analysis.csv')
+# drop uncommon columns for both datasets
+col_not_common = setdiff(union(colnames(data_2m), colnames(data_12m)), intersect(colnames(data_2m), colnames(data_12m)))
+data_2m = data_2m[, !(names(data_2m) %in% col_not_common)]
+data_2m$Age =  '2m'
+ncol(data_2m) # 36
+data_12m = data_12m[, !(names(data_12m) %in% col_not_common)]
+data_12m$Age = '12m'
+ncol(data_12m) # 36
+
+# combine data to keep all 2m and 12m WT MSNs
+stats1 = rbind(data_2m, data_12m)
+
 table(stats1$Brain)
 table(stats1$Age) # 2m: 2248, 12m: 543
 table(stats1$Striatal.Subregion) # 473 CPr, 1377 CPi, 941 CPc
