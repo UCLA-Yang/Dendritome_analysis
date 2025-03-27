@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Train 3 models (cnn, svm, rf) using CP generated gold standard dataset for D1D2 classification based on ch1 images
+Train 3 models (cnn, svm, rf) using human human-created gold standard dataset for D1- and D2-MSN classification based on channel images
+final result is based on weighted pooled probabilities
 The models will output probabilities instead of hard labels
+images: dragonfly images 30x, D1-td tomatal labeling channel
 """
 
 import numpy as np
@@ -35,8 +37,8 @@ from sklearn import metrics
 import pickle
 print(sys.getrecursionlimit())
 
-# change work directory
-os.chdir(Path(r'R:\Reconstructions_Manual\Other_Shared\For_MY\validate_D1D2'))
+# define work directory
+os.chdir(Path(r'...'))
 print(os.getcwd())
 from augmented import generator
 
@@ -169,9 +171,10 @@ def plot_learning_curve(history_obj):
     plt.tight_layout()
     plt.show()
 
-
-#######################re-train a model based on gold-standard assignment##############
-train_data_dir = Path(r'Y:\Camk2a-MORF3-D1Tom\D1D2_train_data')
+#######################################################################################
+####################### train a model based on gold-standard human assignment##############
+######################################################################################
+train_data_dir = Path(r'...')
 
 # generate train images
 neuron_list = []
@@ -227,10 +230,9 @@ img_array_svm = np.array(img_list_svm)
 img_array_rf = np.array(img_list_rf)
 img_array_cnn = np.array(img_list_cnn)
 
-# grab the labels and create the dataset for training
-CP_labeled_dir = Path(r'R:\Reconstructions_Manual\Other_Shared\For_MY\validate_D1D2\train_set_labels')
-CP_labeled = pd.read_csv(CP_labeled_dir/'D1D2_label_validate_CSP_20230118.csv')
-# CP_labeled['neuron'] = CP_labeled['file_name'].apply(lambda x:'_'.join(x.split('_')[1:]))
+# Read human-labeld cell type and create the labels for training dataset
+CP_labeled_dir = Path(r'...')
+CP_labeled = pd.read_csv('...')
 
 label_list = []
 for i, neuron in enumerate(neuron_list):
@@ -249,7 +251,7 @@ print(class_weights_dict)
 
 ####################################################################################
 ########################### 1. Training SVM model ######################################
-# only keep the middle slice
+# only keep the middle slice for simplicity
 img_array_svm_flat = img_array_svm[:,:,:, 3].reshape(img_array_svm.shape[0], -1)
 img_array_svm_flat.shape
 x_train_svm_flat, x_test_svm_flat, y_train, y_test = train_test_split(img_array_svm_flat, label_list_numeric, test_size = 0.3, random_state = 42)
@@ -272,8 +274,8 @@ print('test accuracy: ', metrics.accuracy_score(y_test, best_svm.predict(x_test_
 
 posthoc(best_svm.predict(x_test_svm_flat), y_test, 'SVM')
 
-# save model
-with open(Path(r'R:\Reconstructions_Manual\Other_Shared\For_MY\validate_D1D2\trained_svm_Oct-26-2023.pkl'), 'wb') as f:
+# save model to defined directory
+with open(Path(r'...\trained_svm_Oct-26-2023.pkl'), 'wb') as f:
     pickle.dump(best_svm,f)
 
 # find out the correctly vs. incorrectly classified samples
@@ -284,7 +286,6 @@ for t in x_test_svm_flat:
 len(test_indices)
 
 # correctly classified vs. incorrectly classified
-
 svm_correct = []
 svm_correct_true_label = []
 svm_incorrect = []
@@ -358,8 +359,8 @@ i=7
 viz_img(rf_incorrect[i][:,:,3])
 print(rf"{rf_incorrect_true_label[i]} cell incorrectly classified")
 
-# save model
-with open(Path(r'R:\Reconstructions_Manual\Other_Shared\For_MY\validate_D1D2\trained_rf_Oct-25-2023.pkl'), 'wb') as f:
+# save model to defined directory
+with open(Path(r'...\trained_rf_Oct-25-2023.pkl'), 'wb') as f:
     pickle.dump(best_rf,f)
 
 rf_incorrect_neuron
@@ -419,4 +420,5 @@ print('test accuracy: ', accuracy_score(y_test_cnn, predicted)) # 90.63 %
 plot_learning_curve(history_cnn)
 posthoc(predicted, y_test_cnn, 'CNN')
 
-model_cnn.save(Path(r'R:\Reconstructions_Manual\Other_Shared\For_MY\validate_D1D2\trained_cnn_Oct-25-2023.h5'))
+# save model to the defined directory
+model_cnn.save(Path(r'...\trained_cnn_Oct-25-2023.h5'))
