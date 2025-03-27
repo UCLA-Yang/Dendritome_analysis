@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Generate crops around soma and contrast enhanced images for improved speed of manual D1D2 assignment
+Generate crops around soma and contrast-enhanced images for
+1) assistance for human to assign cell type labels
+2) ML classifier to make prediction
 """
 
 import numpy as np
@@ -61,23 +63,27 @@ def preprocess_img(img, soma_x, soma_y, r):
 ####################################################################################################
 ################## generate enhanced crops around soma (for each brain at a time) ##################
 ####################################################################################################
-brain = 'hTME24-2' # specify the brain
+# specify the brain
+brain = '...' 
 section_list = [rf'0{s}' for s in [i  for i in range(1, 10)]] # define slices
 
-dest_dir_base = Path(r'R:\Reconstructions_Manual\Other_Shared\For_MY\validate_D1D2\3_new_hTME')
+# define output directory
+dest_dir_base = Path(r'...')
 dest_dir = dest_dir_base/rf'{brain}'
 dest_dir.mkdir(exist_ok=True)
 
-morpho_dir = Path(r'W:\BICCN2 Manuscript\Q140_Camk2a-MORF3-D1Tom\Camk-MORF3-D1Tom_12m_hTME24-2\Camk-MORF3-D1Tom_12m_hTME24-2_reconstructions_final\Measurements') 
-morpho_df = pd.read_csv(morpho_dir/'hTME24-2_morphometrics.csv')
+# define the directory of morphometric data
+morpho_dir = Path(r'...') 
+morpho_df = pd.read_csv(morpho_dir/'....csv')
 morpho_neuron_list = list(morpho_df['file_path'])
 print(len(morpho_neuron_list))
 
 failed = []
 neuron_names = []
 for section in section_list:
-    # subvolumne dir 
-    dir = Path(rf'D:\MORF_HD\Camk-MORF3-D1Tom_12m_hTME24-2\hTME24-2_Camk-MORF3-D1Tom_12m_30X_{section}\pipeline_v.3.0\ch0\morph_soma\benchmark\subvolumes')
+    
+    # define the directory that contains ch1 images
+    dir = Path(rf'...{section}...')
 
     r_around_soma = 500
 
@@ -87,7 +93,6 @@ for section in section_list:
         # restrict to neurons that are in the morphometric dataset
         neuron_name  = '_'.join(folder.split('_')[1:])
         if neuron_name in morpho_neuron_list:
-            # print(neuron_name)
         
             folder_path = dir/folder/'ch1'
             try:
@@ -121,6 +126,7 @@ for section in section_list:
                 print(e)
                 print(folder)
                 failed.append(folder)
-        
+
+# save a .csv file with list of neurons for human to assign gold-standard cell type labels
 dest_df = pd.DataFrame(neuron_names, columns=['file_path'])   
 dest_df.to_csv(dest_dir/rf'neuron_list_{brain}.csv', index=None)
