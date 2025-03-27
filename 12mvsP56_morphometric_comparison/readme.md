@@ -1,6 +1,6 @@
 12m_vs_P56.R: perform exploration, analysis and visualziation of 12m WT MSNs and P56 (2m) WT MSNs, limiting to CP neurons.
 
-Generated files:
+Generated files: <br>
 Plots:
 - 1: Basic frequency distribution tables (Type, Age, Striatal.Subregion, Brain..)
 - 2: Distribution plots of Type in Striatal.Subregion, by P56 and 12m MSNs
